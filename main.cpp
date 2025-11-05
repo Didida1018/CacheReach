@@ -13,8 +13,10 @@
 #include <cstdint>
 #include <cstring>
 #include <cassert>
+
 #include "Graph.h"
 #include "Util.h"
+
 using namespace std;
 
 void usage(){
@@ -47,46 +49,46 @@ int main(int argc, char* argv[]){
 	ifstream input;
 	string queryfilename;
 	string filename;
-        string queryIndex;
-        string Indexfilename;
+    string queryIndex;
+    string Indexfilename;
 	clock_t start, end;
-        // Default parameters
-        int Layout = 1;                 // out of cache layout           
+    // Default parameters
+    int Layout = 1;                 // out of cache layout           
 	bool IndexConstruction=false;
 	bool Query=false;
 
-        // Arg parsing
+    // Arg parsing
 	if(argc==1){
-		usage();
-		exit(0);
+	    usage();
+	    exit(0);
 	}
 	int i=1;
 	while(i<argc){
 		if (strcmp("--help", argv[i]) == 0) {
-                        usage();
-                        exit(0);
-                }
-                else if (strcmp("-i", argv[i]) == 0) {
-                        i++;
-                        IndexConstruction = true;
-                        Indexfilename = argv[i++];
-                }
-                else if (strcmp("-q", argv[i]) == 0) {
-                        i++;
+			usage();
+			exit(0);
+		}
+		else if (strcmp("-i", argv[i]) == 0) {
+			i++;
+			IndexConstruction = true;
+			Indexfilename = argv[i++];
+		}
+		else if (strcmp("-q", argv[i]) == 0) {
+			i++;
 			Query = true;
 			queryfilename=argv[i++];
-                }
-                else if (strcmp("-l", argv[i]) == 0) {
-                        i++;
-                        Layout = atoi(argv[i++]);
-                }
+		}
+		else if (strcmp("-l", argv[i]) == 0) {
+			i++;
+			Layout = atoi(argv[i++]);
+		}
 		else {
-                        filename = argv[i++];
-                }
+			filename = argv[i++];
+		}
 	}
-        // reading Graph File
+    // reading Graph File
 	start=clock();
-        // cout<< "Reading graph file: " << filename << endl;
+    // cout<< "Reading graph file: " << filename << endl;
 	input.open(filename.c_str());
 	if(!input.is_open()){
 		cout << "Fail to open the file." << endl;
@@ -96,44 +98,44 @@ int main(int argc, char* argv[]){
 	input.close();
 	end=clock();
 
-        if (IndexConstruction) {
-                cout<<"Kp: " << Kp <<"\tKt: "<< Kt<<endl;
-                double indexTime = 0.0, tmp = 0.0;
-                struct timeval querystart, queryend;
-                // cout << "***********Topo***********\n";
-                gettimeofday(&querystart, NULL);
-                Topo* topo = new Topo(&g);
-                gettimeofday(&queryend, NULL);
-                tmp = (queryend.tv_sec - querystart.tv_sec)*1000.0 + (queryend.tv_usec - querystart.tv_usec)*1.0/1000.0;
-                indexTime += tmp;
-                cout<< "Topo construction time(ms): " << tmp << endl;
+	if (IndexConstruction) {
+		cout<<"Kp: " << Kp <<"\tKt: "<< Kt<<endl;
+		double indexTime = 0.0, tmp = 0.0;
+		struct timeval querystart, queryend;
+		// cout << "***********Topo***********\n";
+		gettimeofday(&querystart, NULL);
+		Topo* topo = new Topo(&g);
+		gettimeofday(&queryend, NULL);
+		tmp = (queryend.tv_sec - querystart.tv_sec)*1000.0 + (queryend.tv_usec - querystart.tv_usec)*1.0/1000.0;
+		indexTime += tmp;
+		cout<< "Topo construction time(ms): " << tmp << endl;
 
-                // cout << "***********LandBit***********\n";
-                gettimeofday(&querystart, NULL);
-                LandBitIndex* pll = new LandBitIndex(&g);
-                gettimeofday(&queryend, NULL);
-                tmp = (queryend.tv_sec - querystart.tv_sec)*1000.0 + (queryend.tv_usec - querystart.tv_usec)*1.0/1000.0;
-                indexTime += tmp;
-                cout<< "Landbit construction time(ms): " << tmp << endl;
-                
-                // cout << "***********CR***********\n";
-                gettimeofday(&querystart, NULL);
-                CRIndex* CR = new CRIndex(&g, pll, topo);
-                gettimeofday(&queryend, NULL);
-                tmp = (queryend.tv_sec - querystart.tv_sec)*1000.0 + (queryend.tv_usec - querystart.tv_usec)*1.0/1000.0;
-                indexTime += tmp;
-                cout<< "CR construction time(ms): " << tmp << endl;
+		// cout << "***********LandBit***********\n";
+		gettimeofday(&querystart, NULL);
+		LandBitIndex* pll = new LandBitIndex(&g);
+		gettimeofday(&queryend, NULL);
+		tmp = (queryend.tv_sec - querystart.tv_sec)*1000.0 + (queryend.tv_usec - querystart.tv_usec)*1.0/1000.0;
+		indexTime += tmp;
+		cout<< "Landbit construction time(ms): " << tmp << endl;
+		
+		// cout << "***********CR***********\n";
+		gettimeofday(&querystart, NULL);
+		CRIndex* CR = new CRIndex(&g, pll, topo);
+		gettimeofday(&queryend, NULL);
+		tmp = (queryend.tv_sec - querystart.tv_sec)*1000.0 + (queryend.tv_usec - querystart.tv_usec)*1.0/1000.0;
+		indexTime += tmp;
+		cout<< "CR construction time(ms): " << tmp << endl;
 
-                // cout << "********out_put*********\n";
-                output_index(CR, pll, topo, Indexfilename); 
-                cout << "Index time(s): " << indexTime/1000 << endl;
-                cout<<"index Size(MB): " << 1.0 * (2 * sizeof(uint16_t) + 2 * Kp / 8 + Kt / 8 ) * g.vsize / (1024 * 1024) << endl;
-                // return 0;
-        }
-        if(Query){
-                if(Layout) g.QueryTest1(queryfilename, Indexfilename);
-                else g.QueryTest0(queryfilename, Indexfilename);
+		// cout << "********out_put*********\n";
+		output_index(CR, pll, topo, Indexfilename); 
+		cout << "Index time(s): " << indexTime/1000 << endl;
+		cout<<"index Size(MB): " << 1.0 * (2 * sizeof(uint16_t) + 2 * Kp / 8 + Kt / 8 ) * g.vsize / (1024 * 1024) << endl;
+		// return 0;
 	}
-        return 0;
+	if(Query){
+		if(Layout) g.QueryTest1(queryfilename, Indexfilename);
+		else g.QueryTest0(queryfilename, Indexfilename);
+	}
+    return 0;
 }
 
