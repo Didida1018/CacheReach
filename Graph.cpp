@@ -1,6 +1,5 @@
 #ifndef GRAPH_CPP_
 #define GRAPH_CPP_
-
 #include "Graph.h"
 #include <numeric>
 #include <random>
@@ -41,7 +40,6 @@ void Graph::strTrimRight(string& str) {
     else
         str.clear();
 }
-
 
 void Graph::readGraph(istream& in) {
     string buf;
@@ -216,7 +214,6 @@ void Graph::runQuery1(vector<int> &src, vector<int> &dest, vector<int> &reachfla
 	}
 }
 
-
 void Graph::runQuery0(vector<int> &src, vector<int> &dest, vector<int> &reachflag) {
     bool ProLflag;
     for(vector<int>::iterator uit=src.begin(), vit=dest.begin(); uit!=src.end(); uit++, vit++){
@@ -296,10 +293,6 @@ void Graph::QueryTest1(const string& queryfilename, const string& queryIndex){
     }
 	delete[] flag;
 }
-
-
-
-
 
 void Graph::QueryTest0(const string& queryfilename, const string& queryIndex){
 	int u, v;
