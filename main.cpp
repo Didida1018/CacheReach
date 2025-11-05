@@ -13,10 +13,8 @@
 #include <cstdint>
 #include <cstring>
 #include <cassert>
-
 #include "Graph.h"
 #include "Util.h"
-
 using namespace std;
 
 void usage(){
