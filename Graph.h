@@ -1,6 +1,5 @@
 #ifndef _GRAPH_H
 #define _GRAPH_H
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -19,16 +18,12 @@
 #include <cstdint>
 #include <sys/time.h>
 #include <bitset>
-
 #include "Util.h"
-
-
 using namespace std;
 
 typedef map<int,vector<int> > HashMap;
 const int Kp = 64; // Size of LandBit bitset
 const int Kt = 64; // Size of CR bitset
-
 
 class ReachIndex{
 public:
@@ -112,7 +107,6 @@ class Graph{
 private:
 	void ReadIndex1(const string&);
 	void ReadIndex0(const string&);
-
 public:
 		void delRedounEdge(vector<bool> isPLL);
 		bool OPT_DFS1(const int u, const int v);
@@ -145,8 +139,6 @@ class CRIndex {
 public:
     vector<bitset<Kt>> reach_bit;
     CRIndex(Graph* graph, LandBitIndex* pll, Topo* topo);
-	// TRIM();
 };
-
 #endif
 
