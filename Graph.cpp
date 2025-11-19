@@ -420,6 +420,7 @@ void BFS_LandBit(const std::vector<int>& Edges, const std::vector<int>& ptr, std
         for (int i = ptr[f]; i < ptr[f + 1]; i++) {
             if(Pb[Edges[i]][k]==0){
                 Queue.push(Edges[i]);
+				Pb[Edges[i]][k]=1;
             }
         }
     }
