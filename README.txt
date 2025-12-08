@@ -22,10 +22,9 @@ Then V lines follow.Each line describes edge from a certain vertex, u, to its su
 u: v_1, v_2, v_3....#
 
 Query File Format:
-Each line contains a query
-u,v,result
-Where result = 0 indicates v is unreachable from u
-Where result = 1 indicates v is reachable from u
+This format is consistent across most reachability algorithms. Each line contains three parameters: u, v, and Reach. Here, Reach indicates whether v is reachable from u, and it is used to verify the correctness of the query results.
+Where Reach = 0 indicates v is unreachable from u
+Where Reach = 1 indicates v is reachable from u
 
 Sample usage:
 ./CacheReach ./example/agrocyc.gra  -i ./example/agrocyc.index -q ./example/agrocyc.txt
