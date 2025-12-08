@@ -1,5 +1,6 @@
 #ifndef GRAPH_CPP_
 #define GRAPH_CPP_
+
 #include "Graph.h"
 #include <numeric>
 #include <random>
@@ -41,14 +42,15 @@ void Graph::strTrimRight(string& str) {
         str.clear();
 }
 
+
 void Graph::readGraph(istream& in) {
     string buf;
-    // getline(in, buf);
-    // strTrimRight(buf);
-    // if (buf != "graph_for_greach") {
-    //     cout << buf << " BAD FILE FORMAT!" << endl;
-    //     exit(0);
-    // }
+    getline(in, buf);
+    strTrimRight(buf);
+    if (buf != "graph_for_greach") {
+        cout << buf << " BAD FILE FORMAT!" << endl;
+        exit(0);
+    }
 
     getline(in, buf);
     int n;
@@ -214,6 +216,7 @@ void Graph::runQuery1(vector<int> &src, vector<int> &dest, vector<int> &reachfla
 	}
 }
 
+
 void Graph::runQuery0(vector<int> &src, vector<int> &dest, vector<int> &reachflag) {
     bool ProLflag;
     for(vector<int>::iterator uit=src.begin(), vit=dest.begin(); uit!=src.end(); uit++, vit++){
@@ -248,8 +251,10 @@ void Graph::QueryTest1(const string& queryfilename, const string& queryIndex){
 	vector<int> src, dest, reachflag;
 	vector<string> tmps;
 	int i=0;
+    cout<<"loading..."<<endl;;
 	start=clock();
-    while(getline(queryfile, line), line.size()){
+    // while(getline(queryfile, line), line.size()){
+    while(getline(queryfile, line)&&!line.empty()){
 		split(line, ' ', tmps);
 		src.push_back(atoi(tmps[0].c_str()));
 		dest.push_back(atoi(tmps[1].c_str()));
@@ -259,7 +264,7 @@ void Graph::QueryTest1(const string& queryfilename, const string& queryIndex){
 	}
 	end=clock();
 	queryfile.close();
-
+    cout<<"Query size:"<<src.size()<<endl;
     // query
     querycnt = 0;
     flag=new int[vsize];
@@ -294,6 +299,10 @@ void Graph::QueryTest1(const string& queryfilename, const string& queryIndex){
 	delete[] flag;
 }
 
+
+
+
+
 void Graph::QueryTest0(const string& queryfilename, const string& queryIndex){
 	int u, v;
 	bool ProLflag;
@@ -311,8 +320,10 @@ void Graph::QueryTest0(const string& queryfilename, const string& queryIndex){
 	vector<int> src, dest, reachflag;
 	vector<string> tmps;
 	int i=0;
+    cout<<"loading..."<<endl;;
 	start=clock();
-	while(getline(queryfile, line), line.size()){
+	// while(getline(queryfile, line), line.size()){
+    while(getline(queryfile, line)&&!line.empty()){
 		split(line, ' ', tmps);
 		src.push_back(atoi(tmps[0].c_str()));
 		dest.push_back(atoi(tmps[1].c_str()));
@@ -322,6 +333,7 @@ void Graph::QueryTest0(const string& queryfilename, const string& queryIndex){
 	}
 	end=clock();
 	queryfile.close();
+    cout<<"Query size:"<<src.size()<<endl;
     // Query
     querycnt = 0;
 	flag=new int[vsize];
@@ -419,8 +431,8 @@ void BFS_LandBit(const std::vector<int>& Edges, const std::vector<int>& ptr, std
         Pb[f][k] = 1;
         for (int i = ptr[f]; i < ptr[f + 1]; i++) {
             if(Pb[Edges[i]][k]==0){
+                Pb[Edges[i]][k]=1;
                 Queue.push(Edges[i]);
-				Pb[Edges[i]][k]=1;
             }
         }
     }
