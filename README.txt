@@ -28,4 +28,4 @@ Where result = 0 indicates v is unreachable from u
 Where result = 1 indicates v is reachable from u
 
 Sample usage:
-./CacheReach "./example/agrocyc.gra"  -i "./example/agrocyc.index" -q "./example/agrocyc.txt"
+./CacheReach ./example/agrocyc.gra  -i ./example/agrocyc.index -q ./example/agrocyc.txt
