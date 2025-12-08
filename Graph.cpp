@@ -279,7 +279,6 @@ void Graph::QueryTest1(const string& queryfilename, const string& queryIndex){
     memset(flag, 0, sizeof(int)*vsize);
     querycnt = 0;
     for(vector<int>::iterator uit=src.begin(), vit=dest.begin(); uit!=src.end(); uit++, vit++, i++){
-        // 检错
         if ((CR[*uit] & CR[*vit]).any()
             || reachindex[*uit].TopoOrder>=reachindex[*vit].TopoOrder
             || reachindex[*uit].RevTopoOrder<=reachindex[*vit].RevTopoOrder
