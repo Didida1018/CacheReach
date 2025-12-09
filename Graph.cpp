@@ -512,8 +512,8 @@ Topo::Topo(Graph* graph) {
     vector<int> in_degree(vsize);
     vector<int> out_degree(vsize);
     for (int i = 0; i < vsize; i++) {
-        in_degree[i] = graph->Inptr[i + 1] - graph->Inptr[i];  // 入度 = 入边数量
-        out_degree[i] = graph->Outptr[i + 1] - graph->Outptr[i]; // 出度 = 出边数量
+        in_degree[i] = graph->Inptr[i + 1] - graph->Inptr[i];  
+        out_degree[i] = graph->Outptr[i + 1] - graph->Outptr[i]; 
     }
     std::vector<int> queue;
     queue.reserve(vsize); 
