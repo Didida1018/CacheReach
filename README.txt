@@ -22,7 +22,7 @@ Then V lines follow.Each line describes edge from a certain vertex, u, to its su
 u: v_1, v_2, v_3....#
 
 Query File Format:
-This format is consistent across most reachability algorithms. Each line contains three parameters: u, v, and Reach. Here, Reach indicates whether v is reachable from u, and it is used to verify the correctness of the query results.
+This format is consistent across many reachability algorithms. Each line contains three numbers: u, v, and Reach. Here, Reach indicates whether v is reachable from u, and it is used to verify the correctness of the query results.
 Where Reach = 0 indicates v is unreachable from u
 Where Reach = 1 indicates v is reachable from u
 
