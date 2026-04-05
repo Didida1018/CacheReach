@@ -1,5 +1,6 @@
 # CacheReach
 **CacheReach** is a high-performance reachability query engine designed to break the "performance hard ceiling" in large-scale directed graphs. 
+
 While traditional methods focus on algorithmic complexity, CacheReach addresses the modern hardware bottleneck: **Memory Access Latency**. By shifting the query pipeline from memory-bound to compute-bound, CacheReach achieves **3.17x – 10.82x speedups** over state-of-the-art frameworks.
 ### Why CacheReach?
 *   **Hardware-Conscious Design:** Prioritizes cache residency and instruction-level parallelism (ILP) to overcome the "Memory Wall."
