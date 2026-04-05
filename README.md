@@ -13,7 +13,7 @@ Sample usage:
 ```bash
 ./CacheReach ./example/agrocyc.gra  -i ./example/agrocyc.index -q ./example/agrocyc.txt
 ```
-### Command Line Arguments
+Command Line Arguments
 | Argument | Description |
 | :--- | :--- |
 | `--help` | Display this help message and exit. |
