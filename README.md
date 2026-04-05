@@ -1,6 +1,17 @@
 # CacheReach
 An efficient reachability query tool designed for Directed Acyclic Graphs (DAGs), featuring cache-optimized index layouts.
 
+## 📖 Introduction
+
+**CacheReach** is a high-performance reachability query engine designed to break the "performance hard ceiling" in large-scale directed graphs. 
+
+While traditional methods focus on algorithmic complexity, CacheReach addresses the modern hardware bottleneck: **Memory Access Latency**. By shifting the query pipeline from memory-bound to compute-bound, CacheReach achieves **3.17x – 10.82x speedups** over state-of-the-art frameworks.
+
+### Why CacheReach?
+*   **Hardware-Conscious Design:** Prioritizes cache residency and instruction-level parallelism (ILP) to overcome the "Memory Wall."
+*   **CR-vectors:** A novel "Stage 0" pre-filter that resolves the majority of negative queries using single-cycle bitwise logic.
+*   **Optimized Pipeline:** Jointly optimizes stage ordering and data layout to shield downstream stages from expensive memory accesses.
+
 ## Dataset
 We provide various graph datasets and their corresponding query pairs sourced from the SNAP repository for evaluation and testing.
 
