@@ -9,6 +9,10 @@ Run the executable using the following syntax:
 ```bash
 ./CacheReach [--help] <filename> [-i <indexfile>] [-l <layout>] [-q <queryfilename>] [-b <indexfile>]
 ```
+Sample usage:
+```bash
+./CacheReach ./example/agrocyc.gra  -i ./example/agrocyc.index -q ./example/agrocyc.txt
+```
 ### Command Line Arguments
 | Argument | Description |
 | :--- | :--- |
