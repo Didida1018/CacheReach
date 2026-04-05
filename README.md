@@ -21,7 +21,6 @@ Run the executable using the following syntax:
 | `-b <indexfile>` | Load a pre-built index file. |
 
 ## File Formats
-
 ### 1. Graph File Format (`.gra`)
 The input graph must be a **Directed Acyclic Graph (DAG)**. The file structure is defined as follows:
 1.  **Header:** The first line must be exactly `graph_for_greach`.
@@ -35,17 +34,14 @@ graph_for_greach
 0: 1, 2
 1: 2
 2:
-
-
+```
 ### Query File Format
 This format is consistent across many reachability algorithms. Each line contains three numbers: `u`, `v`, and `Reach`. The `Reach` flag is used to verify the correctness of the query results.
-
 * **u**: Source vertex.
 * **v**: Target vertex.
 * **Reach**: Verification flag.
     * `1`: $v$ is reachable from $u$.
     * `0`: $v$ is **unreachable** from $u$.
-
 **Example:**
 ```text
 0 2 1
