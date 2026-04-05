@@ -23,7 +23,7 @@ Command Line Arguments
 | `-b <indexfile>` | Load a pre-built index file. |
 
 ## Datasets
-We provide various graph datasets and their corresponding query pairs sourced from the SNAP repository for evaluation and testing.https://drive.google.com/drive/folders/1qgDIZhlINvX7oNcrW52xH27BM9Ntqgth?usp=drive_link
+We provide various graph datasets and their corresponding query pairs sourced from the SNAP repository for evaluation and testing. https://drive.google.com/drive/folders/1qgDIZhlINvX7oNcrW52xH27BM9Ntqgth?usp=drive_link
 ### 1.Graph File Format (`.gra`)
 The input graph must be a **Directed Acyclic Graph (DAG)**. The file structure is defined as follows:
 1.  **Header:** The first line must be exactly `graph_for_greach`.
