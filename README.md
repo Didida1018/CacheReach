@@ -12,7 +12,7 @@ make
 Run the executable using the following syntax:
 ```bash
 ./CacheReach [--help] <filename> [-i <indexfile>] [-l <layout>] [-q <queryfilename>] [-b <indexfile>]
-
+```
 Argument,Description
 --help,Display this help message and exit.
 <filename>,Required. The path to the input graph file.
