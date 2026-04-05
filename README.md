@@ -45,6 +45,7 @@ This format is consistent across many reachability algorithms. Each line contain
 2 0 0
 ```
 
+## Run
 Build the project using the provided `Makefile`:
 ```bash
 make
