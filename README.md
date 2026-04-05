@@ -37,11 +37,11 @@ graph_for_greach
 ```
 ### 2.Query File Format
 This format is consistent across many reachability algorithms. Each line contains three numbers: `u`, `v`, and `Reach`. The `Reach` flag is used to verify the correctness of the query results.
-* **u**: Source vertex.
-* **v**: Target vertex.
-* **Reach**: Verification flag.
-    * `1`: $v$ is reachable from $u$.
-    * `0`: $v$ is **unreachable** from $u$.
+1. **u**: Source vertex.
+2. **v**: Target vertex.
+3. **Reach**: Verification flag.
+    `1`: $v$ is reachable from $u$.
+    `0`: $v$ is **unreachable** from $u$.
   
 **Example:**
 ```text
