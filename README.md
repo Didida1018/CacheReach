@@ -19,3 +19,21 @@ Run the executable using the following syntax:
 | `-l <layout>` | Set the index layout scheme: `0` (In-cache) or `1` (Out-of-cache). Default is `1`. |
 | `-q <queryfile>` | Set the query file for reachability testing. |
 | `-b <indexfile>` | Load a pre-built index file. |
+
+## File Formats
+
+### 1. Graph File Format (`.gra`)
+The input graph must be a **Directed Acyclic Graph (DAG)**. The file structure is defined as follows:
+
+1.  **Header:** The first line must be exactly `graph_for_greach`.
+2.  **Vertex Count:** The second line contains an integer $V$, representing the total number of vertices.
+3.  **Adjacency List:** $V$ lines follow. Each line describes the edges from a specific vertex $u$ to its successors $v_i$ in the following format:
+    `u: v_1, v_2, v_3...`
+
+**Example:**
+```text
+graph_for_greach
+3
+0: 1, 2
+1: 2
+2:
