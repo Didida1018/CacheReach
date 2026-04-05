@@ -43,7 +43,7 @@ This format is consistent across many reachability algorithms. Each line contain
 ```text
 0 2 1
 2 0 0
-
+```
 
 Build the project using the provided `Makefile`:
 ```bash
