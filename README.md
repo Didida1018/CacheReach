@@ -46,7 +46,7 @@ This format is consistent across many reachability algorithms. Each line contain
 ```
 
 ## Run
-Ensure you have a C++ compiler installed, then build the executable using the provided `Makefile`:
+Build the project using the provided `Makefile`:
 ```bash
 make
 ```
