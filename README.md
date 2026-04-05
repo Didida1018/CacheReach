@@ -31,9 +31,9 @@ The input graph must be a **Directed Acyclic Graph (DAG)**. The file structure i
 ```text
 graph_for_greach
 3
-0: 1, 2
-1: 2
-2:
+0: 1, 2 #
+1: 2 #
+2: #
 ```
 ### 2.Query File Format
 This format is consistent across many reachability algorithms. Each line contains three numbers: `u`, `v`, and `Reach`. The `Reach` flag is used to verify the correctness of the query results.
