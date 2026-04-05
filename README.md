@@ -8,7 +8,7 @@ Build the project using the provided `Makefile`:
 make
 ```
 
-## Compilation
+## Usage
 Run the executable using the following syntax:
 ```bash
 ./CacheReach [--help] <filename> [-i <indexfile>] [-l <layout>] [-q <queryfilename>] [-b <indexfile>]
