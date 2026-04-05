@@ -1,5 +1,9 @@
 # CacheReach
 An efficient reachability query tool designed for Directed Acyclic Graphs (DAGs), featuring cache-optimized index layouts.
+
+## Dataset
+We provide various graph datasets and their corresponding query pairs sourced from the SNAP repository for evaluation and testing.
+
 ## Usage
 Run the executable using the following syntax:
 ```bash
@@ -45,7 +49,7 @@ This format is consistent across many reachability algorithms. Each line contain
 2 0 0
 ```
 
-## Run
+## Complication and run
 Build the project using the provided `Makefile`:
 ```bash
 make
