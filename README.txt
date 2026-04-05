@@ -1,4 +1,4 @@
-To compile:
+# To compile:
 make
 
 To run:
