@@ -1,17 +1,9 @@
 # CacheReach
 An efficient reachability query tool designed for Directed Acyclic Graphs (DAGs), featuring cache-optimized index layouts.
 ## Usage
-Build the project using the provided `Makefile`:
-```bash
-make
-```
 Run the executable using the following syntax:
 ```bash
 ./CacheReach [--help] <filename> [-i <indexfile>] [-l <layout>] [-q <queryfilename>] [-b <indexfile>]
-```
-Sample usage:
-```bash
-./CacheReach ./example/agrocyc.gra  -i ./example/agrocyc.index -q ./example/agrocyc.txt
 ```
 Command Line Arguments
 | Argument | Description |
@@ -51,3 +43,13 @@ This format is consistent across many reachability algorithms. Each line contain
 ```text
 0 2 1
 2 0 0
+
+
+Build the project using the provided `Makefile`:
+```bash
+make
+```
+Sample usage:
+```bash
+./CacheReach ./example/agrocyc.gra  -i ./example/agrocyc.index -q ./example/agrocyc.txt
+```
