@@ -49,6 +49,7 @@ This format is consistent across many reachability algorithms. Each line contain
   
 **Example:**
 ```text
+u v Reach
 0 2 1
 2 0 0
 ```
